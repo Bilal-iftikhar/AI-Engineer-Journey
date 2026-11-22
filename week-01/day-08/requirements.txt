@@ -1,0 +1,10 @@
+What is Dependency Injection?
+Imagine you have five API endpoints that need access to the same employee service.
+
+Without Dependency Injection, you might repeatedly create or initialize the service inside each endpoint.
+
+With Dependency Injection, you define a reusable dependency and let FastAPI provide it automatically.
+
+In simple terms:
+
+Instead of creating everything yourself, you ask FastAPI to provide what your endpoint needs.
