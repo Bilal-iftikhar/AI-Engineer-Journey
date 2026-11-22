@@ -1,0 +1,10 @@
+Why do we need project structure?
+Currently, your application contains:
+- FastAPI configuration
+- Employee data
+- Pydantic models
+- GET, POST, PUT and DELETE endpoints
+- Validation and business logic
+All in one file.
+
+That works for a small application, but becomes difficult to maintain as the project grows.
