@@ -44,6 +44,6 @@ if __name__ == "__main__":
 
     # Update employee salary
     employee = create_employee(
-                "Afnan", "afnan@gmail.com", "2"
+                "Afnan", "afnan@gmail.com", 2
                 )
     print("Updated:",employee)

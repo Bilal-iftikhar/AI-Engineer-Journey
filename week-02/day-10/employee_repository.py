@@ -25,7 +25,7 @@ def get_employee_by_id(employee_id:int) -> tuple | None:
                             """,(employee_id,))
                 return cursor.fetchone()
 
-def create_employee(name, email, department_id):
+def create_employee(name:str, email:str, department_id:int) -> tuple | None:
     try:
         with get_connection() as connection:
             with connection.cursor() as cursor:
