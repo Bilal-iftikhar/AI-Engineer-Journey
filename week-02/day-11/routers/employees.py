@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError
 
 from database import get_db
 from models import Employee
@@ -61,15 +62,21 @@ def update_employee(
         raise HTTPException(
             status_code=404,
             detail="Employee not found"
+        )   
+    try:
+        for key, value in employee_data.model_dump().items():
+            setattr(employee, key, value)
+
+        db.commit()
+        db.refresh(employee)
+
+        return employee
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(
+            status_code=409,
+            detail="Email already exists or department is invalid"
         )
-
-    for key, value in employee_data.model_dump().items():
-        setattr(employee, key, value)
-
-    db.commit()
-    db.refresh(employee)
-
-    return employee
 
 
 @router.delete("/{employee_id}")
