@@ -1,0 +1,10 @@
+
+SQLAlchemy pagination, filtering and sorting
+
+
+Pagination: .offset() and .limit()
+Filtering: .filter()
+Dynamic sorting: .asc() and .desc()
+Input validation: FastAPI Query()
+Safe sorting: Allowlist using a dictionary
+Testing: pytest for valid and invalid requests
